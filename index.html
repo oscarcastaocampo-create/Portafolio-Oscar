@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio | Ingeniería de Software</title>
+    <meta name="description" content="Portafolio académico de Óscar Santiago Castañeda Ocampo, estudiante de Ingeniería de Software.">
+    <title>Óscar Santiago Castañeda Ocampo | Portafolio</title>
 
     <style>
-        /* Configuración general */
+        :root {
+            --rojo: #e50914;
+            --rojo-oscuro: #a80710;
+            --fondo: #111111;
+            --tarjeta: #1c1c1c;
+            --texto: #cccccc;
+            --blanco: #f5f5f5;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,22 +26,13 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #111111;
-            color: #f5f5f5;
+            background: var(--fondo);
+            color: var(--blanco);
             line-height: 1.7;
         }
 
-        :root {
-            --rojo: #e50914;
-            --rojo-oscuro: #a80710;
-            --fondo: #111111;
-            --tarjeta: #1c1c1c;
-            --texto: #cccccc;
-        }
-
-        /* Barra de navegación */
         nav {
-            background-color: #181818;
+            background: #181818;
             padding: 18px 8%;
             display: flex;
             justify-content: space-between;
@@ -44,42 +44,41 @@
 
         .logo {
             color: var(--rojo);
-            font-size: 23px;
+            font-size: 21px;
             font-weight: bold;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 22px;
             flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color .3s;
         }
 
         nav a:hover {
             color: var(--rojo);
         }
 
-        /* Presentación principal */
         header {
             min-height: 440px;
-            padding: 100px 8%;
+            padding: 90px 8%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             background: linear-gradient(120deg, #111111 55%, #45090d);
-            border-bottom: 1px solid #333333;
+            border-bottom: 1px solid #333;
         }
 
-        header .etiqueta {
+        .etiqueta {
             color: var(--rojo);
             font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 15px;
         }
@@ -87,41 +86,47 @@
         header h1 {
             font-size: clamp(34px, 6vw, 58px);
             line-height: 1.2;
-            max-width: 800px;
+            max-width: 900px;
             margin-bottom: 20px;
         }
 
-        header h1 span {
+        header h1 span,
+        .titulo-seccion span {
             color: var(--rojo);
         }
 
-        header p {
-            max-width: 650px;
+        header p.intro {
+            max-width: 700px;
             color: var(--texto);
             font-size: 18px;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .boton {
             display: inline-block;
-            background-color: var(--rojo);
+            background: var(--rojo);
             color: white;
             padding: 12px 24px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
+            transition: .3s;
             width: fit-content;
+            margin: 4px;
         }
 
         .boton:hover {
-            background-color: var(--rojo-oscuro);
+            background: var(--rojo-oscuro);
             transform: translateY(-3px);
         }
 
-        /* Secciones principales */
         section {
-            padding: 75px 8%;
+            padding: 72px 8%;
+        }
+
+        .sobre-mi,
+        .proyectos {
+            background: #171717;
         }
 
         .titulo-seccion {
@@ -129,53 +134,47 @@
             margin-bottom: 12px;
         }
 
-        .titulo-seccion span {
-            color: var(--rojo);
-        }
-
         .linea {
             width: 65px;
             height: 4px;
-            background-color: var(--rojo);
-            margin-bottom: 30px;
+            background: var(--rojo);
+            margin-bottom: 28px;
             border: none;
         }
 
-        .descripcion {
-            color: var(--texto);
-            max-width: 800px;
-            margin-bottom: 25px;
-        }
-
-        /* Sobre mí */
-        .sobre-mi {
-            background-color: #171717;
-        }
-
+        .descripcion,
         .sobre-mi p {
-            max-width: 900px;
             color: var(--texto);
-            margin-bottom: 15px;
+            max-width: 900px;
+            margin-bottom: 16px;
         }
 
-        /* Tarjetas de habilidades */
-        .habilidades {
+        .habilidades,
+        .contenedor-proyectos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .habilidad,
+        .proyecto {
+            background: var(--tarjeta);
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform .3s, border-color .3s;
         }
 
         .habilidad {
-            background-color: var(--tarjeta);
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #333333;
+            padding: 24px;
             border-top: 3px solid var(--rojo);
-            transition: transform 0.3s;
         }
 
-        .habilidad:hover {
+        .habilidad:hover,
+        .proyecto:hover {
             transform: translateY(-5px);
+            border-color: var(--rojo);
         }
 
         .habilidad h3 {
@@ -183,90 +182,56 @@
             margin-bottom: 10px;
         }
 
-        .habilidad p {
+        .habilidad p,
+        .proyecto p {
             color: var(--texto);
             font-size: 15px;
-        }
-
-        /* Proyectos */
-        .proyectos {
-            background-color: #171717;
-        }
-
-        .contenedor-proyectos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .proyecto {
-            background-color: var(--tarjeta);
-            border: 1px solid #333333;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .proyecto:hover {
-            transform: translateY(-6px);
-            border-color: var(--rojo);
+            margin-bottom: 12px;
         }
 
         .proyecto-cabecera {
             background: linear-gradient(135deg, #e50914, #60050b);
-            padding: 25px;
-            font-size: 35px;
+            padding: 23px;
+            font-size: 32px;
+            font-weight: bold;
         }
 
         .proyecto-contenido {
-            padding: 25px;
+            padding: 24px;
         }
 
         .proyecto h3 {
             margin-bottom: 12px;
-        }
-
-        .proyecto p {
-            color: var(--texto);
-            margin-bottom: 12px;
-            font-size: 15px;
+            font-size: 21px;
         }
 
         .etiqueta-proyecto {
             display: inline-block;
-            color: #ff777d;
-            background-color: #391417;
+            color: #ff858a;
+            background: #391417;
             padding: 5px 10px;
-            margin: 5px 4px 12px 0;
+            margin: 3px 4px 10px 0;
             border-radius: 5px;
             font-size: 12px;
         }
 
-        .enlace-proyecto {
-            color: #ff555d;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .enlace-proyecto:hover {
-            text-decoration: underline;
-        }
-
-        /* Objetivos */
         .objetivos {
             border-left: 3px solid var(--rojo);
-            padding: 20px 25px;
-            background-color: var(--tarjeta);
-            max-width: 850px;
+            padding: 22px 25px;
+            background: var(--tarjeta);
+            max-width: 900px;
             border-radius: 0 8px 8px 0;
         }
 
         .objetivos p {
             color: var(--texto);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        /* Contacto */
+        .objetivos strong {
+            color: white;
+        }
+
         .contacto {
             text-align: center;
             background: linear-gradient(120deg, #260609, #111111);
@@ -274,43 +239,28 @@
 
         .contacto p {
             color: var(--texto);
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto 25px;
         }
 
-        .contacto .boton {
-            margin: 5px;
+        .contacto .linea {
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .boton-secundario {
-            display: inline-block;
-            padding: 11px 23px;
-            border: 1px solid var(--rojo);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .boton-secundario:hover {
-            background-color: var(--rojo);
-        }
-
-        /* Pie de página */
         footer {
             text-align: center;
             padding: 25px;
-            background-color: #080808;
-            color: #888888;
+            background: #080808;
+            color: #888;
             font-size: 14px;
-            border-top: 1px solid #333333;
+            border-top: 1px solid #333;
         }
 
         footer span {
             color: var(--rojo);
         }
 
-        /* Adaptación para celulares */
         @media (max-width: 600px) {
             nav {
                 justify-content: center;
@@ -323,11 +273,11 @@
             }
 
             header {
-                padding: 70px 7%;
+                padding: 65px 7%;
             }
 
             section {
-                padding: 55px 7%;
+                padding: 52px 7%;
             }
 
             .titulo-seccion {
@@ -341,245 +291,260 @@
 
     <!-- Menú de navegación -->
     <nav>
-        <div class="logo">&lt;MiPortafolio /&gt;</div>
+        <div class="logo">&lt;ÓscarSC /&gt;</div>
 
         <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#habilidades">Intereses</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Presentación -->
+    <!-- Presentación principal -->
     <header id="inicio">
-        <p class="etiqueta">Ingeniería de Software</p>
+        <p class="etiqueta">Estudiante de Ingeniería de Software</p>
 
         <h1>
-            Hola, soy <span>Nombre Apellido</span><br>
-            y estoy construyendo mi futuro en tecnología.
+            Hola, soy
+            <span>Óscar Santiago Castañeda Ocampo</span>
         </h1>
 
-        <p>
-            Soy estudiante de primer semestre de Ingeniería de Software.
-            Me interesa aprender a programar, desarrollar soluciones
-            tecnológicas y descubrir nuevas formas de resolver problemas.
+        <p class="intro">
+            Estoy empezando mi camino en el mundo del software.
+            Me interesa aprender cómo se construyen las aplicaciones,
+            desde la parte visual que usa una persona hasta la lógica
+            que funciona detrás de ellas.
         </p>
 
-        <a href="#proyectos" class="boton">Conoce mis proyectos</a>
+        <a href="#proyectos" class="boton">
+            Conoce mis ideas de proyectos
+        </a>
     </header>
 
-    <!-- Información personal -->
+    <!-- Sobre mí -->
     <section id="sobre-mi" class="sobre-mi">
         <h2 class="titulo-seccion">Sobre <span>mí</span></h2>
         <hr class="linea">
 
         <p>
-            Actualmente estoy comenzando mi formación en Ingeniería de
-            Software y estoy aprendiendo los fundamentos de la programación,
-            la lógica computacional y el desarrollo de soluciones mediante
-            la tecnología.
+            Soy Óscar Santiago Castañeda Ocampo, estudiante de Ingeniería
+            de Software. Actualmente estoy construyendo las bases de mi
+            formación y aprendiendo a pensar de manera lógica para analizar
+            problemas y encontrar soluciones mediante la tecnología.
         </p>
 
         <p>
-            Me considero una persona con ganas de aprender, mejorar mis
-            conocimientos y enfrentar nuevos retos. Durante mi formación
-            quiero fortalecer mis habilidades para crear programas útiles,
-            comprender cómo funcionan los sistemas informáticos y trabajar
-            en proyectos que me permitan aplicar lo aprendido en clase.
+            Me gustaría desarrollar aplicaciones que puedan ser útiles
+            en la vida cotidiana. Por eso, tengo ideas relacionadas con
+            la organización de los gastos compartidos entre familiares o
+            amigos y con una herramienta de mapas que ayude a los estudiantes
+            a encontrar sus salones dentro de la universidad.
         </p>
 
         <p>
-            Mi objetivo es seguir creciendo académicamente, construir
-            proyectos propios y desarrollar las habilidades necesarias
-            para convertirme en un buen ingeniero de software.
+            Quiero aprender más sobre <strong>frontend</strong> y
+            <strong>backend</strong>: el frontend para crear interfaces
+            claras, agradables y fáciles de usar, y el backend para
+            comprender cómo funcionan los datos, la lógica y los servicios
+            que hacen posible una aplicación. Mi objetivo es seguir
+            practicando y convertir estas ideas en proyectos funcionales.
         </p>
     </section>
 
-    <!-- Habilidades -->
+    <!-- Áreas de interés -->
     <section id="habilidades">
-        <h2 class="titulo-seccion">Mis <span>habilidades</span></h2>
+        <h2 class="titulo-seccion">Mis áreas de <span>interés</span></h2>
         <hr class="linea">
 
         <p class="descripcion">
-            Estas son algunas de las áreas que estoy desarrollando
-            durante mi proceso de formación académica.
+            Estas son áreas que quiero fortalecer durante mi carrera.
+            A medida que avance, iré agregando las herramientas y habilidades
+            que aprenda y pueda demostrar.
         </p>
 
         <div class="habilidades">
 
-            <div class="habilidad">
-                <h3>01. Programación</h3>
+            <article class="habilidad">
+                <h3>Frontend</h3>
                 <p>
-                    Aprendizaje de los fundamentos de programación,
-                    variables, condicionales, ciclos y funciones.
+                    Me interesa aprender a crear la parte visual de las
+                    aplicaciones, organizar la información y diseñar
+                    interfaces fáciles de entender y utilizar.
                 </p>
-            </div>
+            </article>
 
-            <div class="habilidad">
-                <h3>02. Lógica</h3>
+            <article class="habilidad">
+                <h3>Backend</h3>
                 <p>
-                    Desarrollo del pensamiento lógico y análisis de
-                    problemas para plantear posibles soluciones.
+                    Quiero aprender cómo funcionan los servidores,
+                    las bases de datos, la lógica de una aplicación
+                    y la comunicación entre sus diferentes partes.
                 </p>
-            </div>
+            </article>
 
-            <div class="habilidad">
-                <h3>03. Desarrollo web</h3>
+            <article class="habilidad">
+                <h3>Resolución de problemas</h3>
                 <p>
-                    Introducción a HTML y CSS para crear páginas web
-                    con contenido organizado y una buena presentación.
+                    Quiero mejorar mi lógica de programación y aprender
+                    a dividir problemas grandes en pasos más sencillos.
                 </p>
-            </div>
+            </article>
 
-            <div class="habilidad">
-                <h3>04. Trabajo en equipo</h3>
+            <article class="habilidad">
+                <h3>Diseño de aplicaciones</h3>
                 <p>
-                    Disposición para compartir ideas, escuchar opiniones,
-                    colaborar y aprender de otras personas.
+                    Me interesa pensar en aplicaciones que respondan
+                    a necesidades reales y que sean prácticas para las personas.
                 </p>
-            </div>
+            </article>
 
         </div>
     </section>
 
-    <!-- Proyectos académicos -->
+    <!-- Ideas de proyectos -->
     <section id="proyectos" class="proyectos">
-        <h2 class="titulo-seccion">Mis <span>proyectos</span></h2>
+        <h2 class="titulo-seccion">Mis ideas de <span>proyectos</span></h2>
         <hr class="linea">
 
         <p class="descripcion">
-            En esta sección presento ejercicios e ideas relacionados
-            con mi formación. Los proyectos se pueden ampliar a medida
-            que avance en la carrera.
+            Estas son dos ideas que me gustaría desarrollar y mejorar
+            durante mi formación como ingeniero de software.
         </p>
 
         <div class="contenedor-proyectos">
 
             <!-- Proyecto 1 -->
             <article class="proyecto">
-                <div class="proyecto-cabecera">01</div>
+                <div class="proyecto-cabecera">01 / Finanzas</div>
 
                 <div class="proyecto-contenido">
-                    <h3>Ejercicios de programación</h3>
+                    <h3>Aplicación para distribuir gastos compartidos</h3>
 
                     <p>
-                        <strong>Objetivo:</strong> practicar los conceptos
-                        básicos de programación y aprender a resolver
-                        problemas mediante instrucciones ordenadas.
+                        <strong>Objetivo:</strong> crear una aplicación que
+                        ayude a familias o grupos de amigos a organizar
+                        los gastos que comparten, por ejemplo, compras
+                        del hogar, salidas o viajes.
                     </p>
 
                     <p>
-                        <strong>Mi contribución:</strong> desarrollar
-                        ejercicios académicos y revisar su funcionamiento.
+                        <strong>Idea de funcionamiento:</strong> los usuarios
+                        podrían registrar los gastos, indicar quién pagó
+                        y consultar cuánto le corresponde aportar a cada
+                        integrante. La aplicación ayudaría a visualizar
+                        las cuentas de una forma más organizada.
                     </p>
 
                     <p>
-                        <strong>Aprendizaje:</strong> comprender mejor
-                        las variables, las condiciones, los ciclos y
-                        la importancia de organizar el código.
+                        <strong>Lo que quiero aprender:</strong> diseñar
+                        formularios, realizar cálculos, guardar información
+                        y desarrollar una interfaz sencilla para consultar
+                        los gastos.
                     </p>
 
-                    <span class="etiqueta-proyecto">Lógica</span>
-                    <span class="etiqueta-proyecto">Programación</span>
-
-                    <br>
-
-                    <a href="https://github.com/" class="enlace-proyecto"
-                       target="_blank" rel="noopener noreferrer">
-                        Ver GitHub →
-                    </a>
+                    <span class="etiqueta-proyecto">Organización</span>
+                    <span class="etiqueta-proyecto">Cálculos</span>
+                    <span class="etiqueta-proyecto">Frontend y backend</span>
                 </div>
             </article>
 
             <!-- Proyecto 2 -->
             <article class="proyecto">
-                <div class="proyecto-cabecera">02</div>
+                <div class="proyecto-cabecera">02 / Universidad</div>
 
                 <div class="proyecto-contenido">
-                    <h3>Portafolio personal web</h3>
+                    <h3>Mapa interactivo para estudiantes</h3>
 
                     <p>
-                        <strong>Objetivo:</strong> crear una página web
-                        para presentar mi perfil académico, mis habilidades
-                        y los proyectos realizados durante la carrera.
+                        <strong>Objetivo:</strong> proponer una aplicación
+                        con un mapa de la universidad para que los estudiantes
+                        puedan encontrar salones, bloques y otros espacios
+                        académicos de una manera más rápida.
                     </p>
 
                     <p>
-                        <strong>Mi contribución:</strong> organizar
-                        la información y construir la estructura de
-                        la página con HTML y CSS.
+                        <strong>Idea de funcionamiento:</strong> el estudiante
+                        podría buscar el código o nombre de un salón y
+                        consultar su ubicación dentro del campus. Más adelante,
+                        se podrían agregar rutas y puntos de referencia.
                     </p>
 
                     <p>
-                        <strong>Aprendizaje:</strong> conocer cómo se
-                        estructura una página web y cómo se puede
-                        publicar utilizando GitHub Pages.
+                        <strong>Lo que quiero aprender:</strong> crear mapas
+                        e interfaces interactivas, organizar la información
+                        de los espacios y explorar cómo almacenar y consultar
+                        ubicaciones.
                     </p>
 
-                    <span class="etiqueta-proyecto">HTML</span>
-                    <span class="etiqueta-proyecto">CSS</span>
-
-                    <br>
-
-                    <a href="https://github.com/" class="enlace-proyecto"
-                       target="_blank" rel="noopener noreferrer">
-                        Ver GitHub →
-                    </a>
+                    <span class="etiqueta-proyecto">Mapas</span>
+                    <span class="etiqueta-proyecto">Experiencia de usuario</span>
+                    <span class="etiqueta-proyecto">Desarrollo web</span>
                 </div>
             </article>
 
         </div>
     </section>
 
-    <!-- Metas profesionales -->
+    <!-- Metas de aprendizaje -->
     <section id="objetivos">
-        <h2 class="titulo-seccion">Mis <span>objetivos</span></h2>
+        <h2 class="titulo-seccion">Lo que quiero <span>aprender</span></h2>
         <hr class="linea">
 
         <div class="objetivos">
             <p>
-                <strong>Aprender:</strong> fortalecer mis bases de programación
-                y conocer diferentes herramientas de desarrollo.
+                <strong>Frontend:</strong> aprender HTML, CSS y JavaScript
+                para construir páginas e interfaces interactivas y adaptables
+                a celulares.
             </p>
 
             <p>
-                <strong>Practicar:</strong> realizar proyectos académicos
-                que me permitan aplicar los conocimientos adquiridos.
+                <strong>Backend:</strong> conocer lenguajes y herramientas
+                para desarrollar la lógica de las aplicaciones, gestionar
+                datos y comprender cómo se comunican los sistemas.
             </p>
 
             <p>
-                <strong>Mejorar:</strong> aprender de mis errores,
-                escribir código más organizado y desarrollar mi pensamiento lógico.
+                <strong>Bases de datos:</strong> aprender a almacenar,
+                organizar, consultar y actualizar la información de manera
+                adecuada.
             </p>
 
             <p>
-                <strong>Crecer:</strong> construir un portafolio con evidencias
-                reales de mi progreso durante la carrera.
+                <strong>Proyectos reales:</strong> convertir mis ideas en
+                aplicaciones útiles, probarlas, corregir errores y mejorar
+                sus funciones con la práctica.
             </p>
         </div>
     </section>
 
-    <!-- Contacto y redes -->
+    <!-- Contacto -->
     <section id="contacto" class="contacto">
         <h2 class="titulo-seccion">Conectemos</h2>
-        <hr class="linea" style="margin-left: auto; margin-right: auto;">
+        <hr class="linea">
 
         <p>
-            Estoy comenzando mi camino en el mundo del desarrollo de software
-            y me interesa seguir aprendiendo, compartir conocimientos y
-            conocer nuevas oportunidades de crecimiento académico.
+            Estoy en proceso de aprendizaje y quiero seguir creciendo
+            en el área del desarrollo de software. Me interesa conocer
+            ideas, compartir conocimientos y aprender de otras personas.
         </p>
 
-        <!-- Reemplaza los enlaces con tus perfiles reales -->
-        <a href="https://www.linkedin.com/" class="boton"
-           target="_blank" rel="noopener noreferrer">
+        <!-- Mi perfil de LinkedIn -->
+        <a
+            href="https://www.linkedin.com/in/perfiloscarcastaneda271108/"
+            class="boton"
+            target="_blank"
+            rel="noopener noreferrer">
             Mi LinkedIn
         </a>
 
-        <a href="https://github.com/" class="boton-secundario"
-           target="_blank" rel="noopener noreferrer">
+        <!-- Mi perfil de GitHub -->
+        <a
+            href="https://github.com/oscarcastaocampo-create"
+            class="boton"
+            target="_blank"
+            rel="noopener noreferrer">
             Mi GitHub
         </a>
     </section>
@@ -587,15 +552,16 @@
     <!-- Pie de página -->
     <footer>
         <p>
-            Diseñado por <span>Nombre Apellido</span> |
-            Portafolio académico de Ingeniería de Software
+            Diseñado por
+            <span>Óscar Santiago Castañeda Ocampo</span>
         </p>
 
-        <p>© 2026 - Aprendiendo y construyendo mi futuro.</p>
+        <p>
+            Portafolio académico | Ingeniería de Software | 2026
+        </p>
     </footer>
 
 </body>
 </html>
-
 
   
